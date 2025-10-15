@@ -49,5 +49,5 @@ jobs:
       - name: Upload libshaderc
         uses: actions/upload-artifact@main
         with:
-          name: libshaderc
-          path: build/libshaderc/*.dylib
+          name: shaderc
+          path: build/*
