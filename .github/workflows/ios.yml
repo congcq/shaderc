@@ -45,7 +45,7 @@ jobs:
             -DSHADERC_SHARED_LIBS=OFF \
             -DSHADERC_EXE_LINKER_FLAGS="-Wl,-pie" \
             -DCMAKE_EXE_LINKER_FLAGS="-Wl,-pagezero_size,0x4000" \
-          cmake --build build --config Release -- -j4
+          cmake --build build --config Release -- -j8
 
       - name: Upload glslc
         uses: actions/upload-artifact@main
