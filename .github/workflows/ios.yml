@@ -46,8 +46,14 @@ jobs:
             -DSHADERC_EXE_LINKER_FLAGS="-Wl,-pie"
           cmake --build build --config Release -- -j4
 
+      - name: Upload glslc
+        uses: actions/upload-artifact@main
+        with:
+          name: glslc
+          path: build/glslc/glslc
+
       - name: Upload libshaderc
         uses: actions/upload-artifact@main
         with:
-          name: shaderc
-          path: build/glslc/glslc
+          name: libshaderc
+          path: build/libshaderc/*.dylib
