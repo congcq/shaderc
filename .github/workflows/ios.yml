@@ -34,7 +34,7 @@ jobs:
           # Unable to set CMAKE_SYSTEM_NAME to iOS, doing live patch instead
           sed -i'' -e 's/iOS/Darwin/g' third_party/spirv-tools/tools/CMakeLists.txt
           cmake -B build \
-            -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CROSSCOMPILING=true \
+            -DCMAKE_BUILD_TYPE=Release -DCMAKE_CROSSCOMPILING=true \
             -DCMAKE_SYSTEM_NAME=Darwin \
             -DCMAKE_SYSTEM_PROCESSOR=aarch64 \
             -DCMAKE_OSX_ARCHITECTURES=arm64 \
@@ -44,7 +44,7 @@ jobs:
             -DSHADERC_SKIP_TESTS=ON \
             -DSHADERC_SHARED_LIBS=OFF \
             -DSHADERC_EXE_LINKER_FLAGS="-Wl,-pie"
-          cmake --build build --config RelWithDebInfo -- -j4
+          cmake --build build --config Release -- -j4
 
       - name: Upload libshaderc
         uses: actions/upload-artifact@main
